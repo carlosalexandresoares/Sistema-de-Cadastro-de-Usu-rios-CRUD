@@ -5,20 +5,26 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Usuarios</title>
-    <link rel="stylesheet" href="stylie.css">
-    <script src="scripti.js" defer></script>
-    
+    <link rel="stylesheet" href="style.css">
+    <script src="script.js" defer></script>
+
 </head>
 
 <body>
     <header>
         <h1>Usuarios</h1>
-        <img src="cadastro (1).png">       
-</header>
+        <img src="../img/cadastro.png">
+    </header>
+    <div class="controls">
+        <input type="text" id="pesquisa" placeholder="Pesquisar usuário..." oninput="filtrarUsuarios()">
+        <button class="order-btn" onclick="ordenarUsuarios('nomeDoUsuario')">Ordenar por Nome</button>
+        <button class="order-btn" onclick="ordenarUsuarios('cargoUsuario')">Ordenar por Cargo</button>
+    </div>
+
     <div class="container">
-        
+
         <div class="container-table">
-            
+
             <table id="usuariosCadastrados">
                 <thead>
                     <tr>

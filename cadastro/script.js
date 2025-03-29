@@ -127,7 +127,7 @@ btn.addEventListener("click", () => {
 
         localStorage.setItem("cadastroUsuario", JSON.stringify(usuarioCadastrados))
 
-        window.location.href = "usuarios.html";
+        window.location.href = "../usuario/usuarios.html";
     } 
     
 })

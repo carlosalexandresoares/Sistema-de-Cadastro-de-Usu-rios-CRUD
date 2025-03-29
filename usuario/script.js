@@ -26,6 +26,47 @@ function carregarUsuarios() {
     })
 }
 
+function ordenarUsuarios(campo) {
+    let usuarioCadastrados = JSON.parse(localStorage.getItem('cadastroUsuario')) || [];
+
+    usuarioCadastrados.sort((a, b) => {
+        return a[campo].localeCompare(b[campo]);
+    });
+
+    localStorage.setItem('cadastroUsuario', JSON.stringify(usuarioCadastrados));
+    carregarUsuarios();
+}
+
+function filtrarUsuarios() {
+    let termoPesquisa = document.getElementById("pesquisa").value.toLowerCase();
+    let usuarioCadastrados = JSON.parse(localStorage.getItem('cadastroUsuario')) || [];
+    let tbody = document.getElementById("table-body");
+
+    tbody.innerHTML = "";
+
+    let usuariosFiltrados = usuarioCadastrados.filter(usuario =>
+        usuario.nomeDoUsuario.toLowerCase().includes(termoPesquisa) ||
+        usuario.cargoUsuario.toLowerCase().includes(termoPesquisa)
+    );
+
+    usuariosFiltrados.forEach((usuario, index) => {
+        const row = document.createElement("tr");
+        row.innerHTML = `
+            <td>${usuario.nomeDoUsuario}</td>
+            <td>${usuario.emailUsuario}</td>
+            <td>${usuario.telefoneUsuario}</td>
+            <td>${usuario.dataNasciomentoUsuario}</td>
+            <td>${usuario.cargoUsuario}</td>
+            <td>
+                <button class="edit-btn" onclick="editarItem(${index})">Editar</button>
+                <button class="delete-btn" onclick="excluirItem(${index})">Excluir</button>
+            </td>
+        `;
+        tbody.appendChild(row);
+    });
+}
+
+
 
 function editarItem(index) {
     let usuarioCadastrados = JSON.parse(localStorage.getItem('cadastroUsuario')) || [];
@@ -139,51 +180,51 @@ function editarItem(index) {
     let novoCargo
     let cargoValido = false
 
-    do{
-        novoCargo = prompt("Editar Cargo:", usuario.cargoUsuario)
+    do {
+        novoCargo = prompt("Editar Cargo: insira 1 Para TI, 2 Para Administrador ou 3 Para Suporte", usuario.cargoUsuario)
 
         if (isNaN(novoCargo) || novoCargo === '') {
             alert("Por favor, insira um número válido!");
-            continue; 
+            continue;
         }
-    
-        novoCargo = Number(novoCargo); 
 
-        switch(novoCargo){
+        novoCargo = Number(novoCargo);
+
+        switch (novoCargo) {
             case 1:
                 novoCargo = "TI"
                 cargoValido = true
                 break
-            case 2: 
+            case 2:
                 novoCargo = "Administrador"
-                cargoValido= true    
-                break
-            case 3: 
-                novoCargo ="Superte" 
                 cargoValido = true
                 break
-             default:
-                alert("Valor invalido, insira 1 Para TI. 2 Para Administrador ou 3 Para Suporte")          
+            case 3:
+                novoCargo = "Superte"
+                cargoValido = true
+                break
+            default:
+                alert("Valor invalido, insira 1 Para TI. 2 Para Administrador ou 3 Para Suporte")
         }
-    }while(!cargoValido)
+    } while (!cargoValido)
 
 
 
-    if (!Array.isArray(usuario)) {
-        usuario = [];
-    }
+
 
     if (novoNome && novoEmail && novoTel && novaData && novoCargo) {
-
-        usuario[index] = {
-            nomeDoUsuario: novoNome, emailUsuario: novoEmail,
+        usuarioCadastrados[index] = {
+            nomeDoUsuario: novoNome,
+            emailUsuario: novoEmail,
             telefoneUsuario: novoTel,
-            dataNasciomentoUsuario: novaData, cargoUsuario: novoCargo
+            dataNasciomentoUsuario: novaData,
+            cargoUsuario: novoCargo
         };
 
-        localStorage.setItem("cadastroUsuario", JSON.stringify(usuario));
+        localStorage.setItem("cadastroUsuario", JSON.stringify(usuarioCadastrados));
         carregarUsuarios();
     }
+
 }
 
 function excluirItem(index) {

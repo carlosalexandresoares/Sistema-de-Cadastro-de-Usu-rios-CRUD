@@ -1,13 +1,14 @@
-*{
+* {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
 }
 
-body{
+body {
     overflow-y: hidden;
 }
-header{
+
+header {
     background-color: #191919;
     display: flex;
     justify-content: space-between;
@@ -16,21 +17,22 @@ header{
 
 }
 
-header h1{
+header h1 {
     color: #E5E7EB;
     font-family: Verdana;
     font-size: 20px;
 }
 
-header img{
+header img {
     filter: invert(75%);
     height: 35px;
 }
 
-header h1, img{
-    margin: 0 20px  0 20px;
+header h1, img {
+    margin: 0 20px 0 20px;
 }
-.contain{
+
+.contain {
     background-color: #121212;
     height: 100vh;
     display: flex;
@@ -39,7 +41,7 @@ header h1, img{
     color: #E5E7EB;
 }
 
-.contain-form{
+.contain-form {
     display: flex;
     justify-content: center;
     height: 550px;
@@ -50,7 +52,7 @@ header h1, img{
     box-shadow: 10px 10px 10px #333333;
 }
 
-.contain-form input, select{
+.contain-form input, select {
     border: none;
     margin: 5px 0px 10px 0px;
     width: 400px;
@@ -60,18 +62,18 @@ header h1, img{
 }
 
 
-#phone, #date, #cargo{
+#phone, #date, #cargo {
     width: 200px;
 }
 
-#date{
+#date {
     font-family: Helvetica;
     text-align: center;
     font-size: 15px;
     text-transform: uppercase;
 }
 
-#btn{
+#btn {
     margin-top: 13px;
     font-size: 17px;
     color: #ffffff;
@@ -81,12 +83,12 @@ header h1, img{
     padding: 14px;
     cursor: pointer;
 }
-c
-#btn:hover{
+
+c #btn:hover {
     background-color: rgb(129, 179, 80);
 }
 
-.erro{
+.erro {
     margin-left: 10px;
     margin-bottom: 10px;
 }
