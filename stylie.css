@@ -1,0 +1,116 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, Helvetica, sans-serif;
+    
+}
+
+header{
+    width: 100%;
+    position: fixed;
+    background-color: #191919;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 50px;
+
+}
+
+header h1{
+    color: #E5E7EB;
+    font-family: Verdana;
+    font-size: 20px;
+}
+
+header img{
+    filter: invert(75%);
+    height: 35px;
+}
+
+header h1, img{
+    margin: 0 20px  0 20px;
+}
+
+.container{
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    background-color: #121212;
+}
+
+.container-table {
+    margin: auto;
+    overflow-y: auto;
+    max-height: 400px;
+    background-color: #222; /* Fundo escuro */
+    padding: 10px;
+    border-radius: 8px;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.3);
+   
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+th{
+    text-align: center;
+    background-color: #333; /* Fundo mais escuro para cabeçalho */
+    color: #0f0; /* Texto verde */
+    font-weight: bold;
+   
+    padding: 20px;
+}
+
+thead{
+    width: 100%;
+}
+
+td {
+    text-align: center;
+    padding: 12px;
+    color: #ddd; /* Texto claro */
+}
+
+tr:nth-child(even) {
+    background-color: #2a2a2a; /* Linhas alternadas mais escuras */
+}
+
+tr:hover {
+    background-color: #3a3a3a; /* Efeito hover */
+}
+
+/* Estilizando a barra de rolagem */
+.table-container::-webkit-scrollbar {
+    width: 10px;
+}
+
+.table-container::-webkit-scrollbar-track {
+    background: #333;
+    border-radius: 5px;
+}
+
+.table-container::-webkit-scrollbar-thumb {
+    background: #0f0; /* Verde */
+    border-radius: 5px;
+}
+
+button {
+    padding: 5px 10px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-right: 5px;
+}
+
+.edit-btn {
+    background-color: #ffaa00;
+    color: #000;
+}
+
+.delete-btn {
+    background-color: #ff4444;
+    color: white;
+}

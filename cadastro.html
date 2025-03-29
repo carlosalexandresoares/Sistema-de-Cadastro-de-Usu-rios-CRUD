@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="script.js" defer></script>
+</head>
+<body>
+    <header>
+            <h1>Cadastro</h1>
+            <img src="cadastro (1).png">       
+    </header>
+    <div class="contain">
+        
+            <div class="contain-form">
+                
+                <form id="my-form" method="post" >
+                    <label for="name">Nome completo:</label>
+                    <input type="text" name="name" id="name" oninput="validarNome()" required>
+                    <p id="erroName" style="color: red;"  class="erro"></p>
+                    <label for="email"">E-mail:</label>
+                    <input type="email" name="email" id="email" required maxlength="60" size='65' oninput="validarEmail()" >
+                    <p id="erroEmail" style="color: red;" class="erro"></p>
+                    <label for="phone">Telefone:</label>
+                    <input type="tel" name="phone" id="phone" required oninput="validarTel()">
+                    <p id="erroTel" style="color: red;" class="erro"></p>
+                    <label for="date">Data de nascimento:</label>
+                    <input type="date" name="date" id="date" required oninput="(validarData())">
+                    <p id="erroData" style="color: red;" class="erro"></p>
+                    <label for="cargo"> Cargo:</label>
+                    <select name="cargo" id="cargo">
+                        <option selected></option>
+                        <option value="TI">TI</option>
+                        <option value="adm">Administrador</option>
+                        <option value="suporte">Suporte</option>
+                    </select>
+                    <p id="erroCargo" style="color: red;" class="erro"></p>
+                   
+                    <button id="btn">Cadastrar</button>
+                </form>
+            </div>
+    </div>
+</body>
+</html>
