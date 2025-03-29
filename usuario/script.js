@@ -200,7 +200,7 @@ function editarItem(index) {
                 cargoValido = true
                 break
             case 3:
-                novoCargo = "Superte"
+                novoCargo = "Suporte"
                 cargoValido = true
                 break
             default:
